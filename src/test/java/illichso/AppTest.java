@@ -5,6 +5,7 @@ import org.junit.Test;
 import static illichso.Result.D;
 import static illichso.Result.O;
 import static illichso.Result.X;
+import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 public class AppTest {
@@ -79,5 +80,38 @@ public class AppTest {
         String result = ticTacToe.getResult();
 
         assertEquals("Draw", D.getValue(), result);
+    }
+
+    @Test
+    public void testXMakesMove() throws Exception {
+        String[][] board = {{"", "", ""}, {"", "", ""}, {"", "", ""}};
+        String[][] expectedBoard = {{"", "", ""}, {"", "X", ""}, {"", "", ""}};
+        ticTacToe = new TicTacToe(board);
+
+        ticTacToe.makeMove(X, 1, 1);
+
+        assertTrue( expectedBoard == ticTacToe.getBoard());
+    }
+
+    @Test
+    public void testOMakesMove() throws Exception {
+        String[][] board = {{"", "", ""}, {"", "X", ""}, {"", "", ""}};
+        String[][] expectedBoard = {{"", "", ""}, {"", "X", ""}, {"", "", "O"}};
+        ticTacToe = new TicTacToe(board);
+
+        ticTacToe.makeMove(X, 2, 2);
+
+        assertTrue( expectedBoard == ticTacToe.getBoard());
+    }
+
+    @Test
+    public void testOFailsToMakeMoveOnNotEmptySpot() throws Exception {
+        String[][] board = {{"", "", ""}, {"", "X", ""}, {"", "", ""}};
+        String[][] expectedBoard = {{"", "", ""}, {"", "X", ""}, {"", "", ""}};
+        ticTacToe = new TicTacToe(board);
+
+        ticTacToe.makeMove(O, 1, 1);
+
+        assertTrue( expectedBoard == ticTacToe.getBoard());
     }
 }

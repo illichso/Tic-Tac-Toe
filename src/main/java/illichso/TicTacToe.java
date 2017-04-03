@@ -1,7 +1,11 @@
 package illichso;
 
-import static illichso.Result.D;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
+import static illichso.Result.D;
+@Getter
+@EqualsAndHashCode
 public class TicTacToe {
     private String[][] board;
 
@@ -31,5 +35,9 @@ public class TicTacToe {
         }
 
         return D.getValue();
+    }
+
+    public void makeMove(Result player, int row, int column) {
+
     }
 }
