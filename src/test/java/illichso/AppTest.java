@@ -32,6 +32,16 @@ public class AppTest {
     }
 
     @Test
+    public void testXWinDiagonally() throws Exception {
+        String[][] board = {{"X", "O", "X"}, {"O", "X", "O"}, {"X", "O", "X"}};
+        ticTacToe = new TicTacToe(board);
+
+        String result = ticTacToe.getResult();
+
+        assertEquals("X won", X.getValue(), result);
+    }
+
+    @Test
     public void testOWinHorizontally() throws Exception {
         String[][] board = {{"X", "O", "X"}, {"O", "O", "O"}, {"O", "X", "O"}};
         ticTacToe = new TicTacToe(board);
@@ -52,8 +62,18 @@ public class AppTest {
     }
 
     @Test
+    public void testOWinDiagonally() throws Exception {
+        String[][] board = {{"O", "X", "X"}, {"X", "O", "O"}, {"X", "X", "O"}};
+        ticTacToe = new TicTacToe(board);
+
+        String result = ticTacToe.getResult();
+
+        assertEquals("O won", O.getValue(), result);
+    }
+
+    @Test
     public void testDraw() throws Exception {
-        String[][] board = {{"X", "O", "O"}, {"O", "X", "O"}, {"O", "O", "X"}};
+        String[][] board = {{"X", "O", "X"}, {"O", "X", "X"}, {"O", "X", "O"}};
         ticTacToe = new TicTacToe(board);
 
         String result = ticTacToe.getResult();
