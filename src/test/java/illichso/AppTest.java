@@ -1,37 +1,43 @@
 package illichso;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.Test;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
+import static illichso.Result.D;
+import static illichso.Result.O;
+import static illichso.Result.X;
+import static org.junit.Assert.assertEquals;
+
+public class AppTest {
+    private TicTacToe ticTacToe;
+
+
+    @Test
+    public void testXWin() throws Exception {
+        char[][] board = {{'X', 'X', 'X'}, {'O', 'X', 'O'}, {'O', 'X', 'X'}};
+        ticTacToe = new TicTacToe(board);
+
+        String result = ticTacToe.getResult();
+
+        assertEquals("X won", X.getValue(), result);
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
+    @Test
+    public void testOWin() throws Exception {
+        char[][] board = {{'X', 'O', 'X'}, {'O', 'O', 'X'}, {'O', 'X', 'O'}};
+        ticTacToe = new TicTacToe(board);
+
+        String result = ticTacToe.getResult();
+
+        assertEquals("X won", O.getValue(), result);
     }
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+    @Test
+    public void testDraw() throws Exception {
+        char[][] board = {{'X', 'O', 'O'}, {'O', 'X', 'O'}, {'O', 'O', 'X'}};
+        ticTacToe = new TicTacToe(board);
+
+        String result = ticTacToe.getResult();
+
+        assertEquals("X won", D.getValue(), result);
     }
 }
