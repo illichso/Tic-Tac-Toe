@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum Result {
     X("X"),
-    O("X"),
+    O("O"),
     D("Draw");
 
     private String value;

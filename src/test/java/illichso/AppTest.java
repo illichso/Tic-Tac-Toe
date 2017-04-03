@@ -12,8 +12,8 @@ public class AppTest {
 
 
     @Test
-    public void testXWin() throws Exception {
-        char[][] board = {{'X', 'X', 'X'}, {'O', 'X', 'O'}, {'O', 'X', 'X'}};
+    public void testXWinHorizontally() throws Exception {
+        String[][] board = {{"X", "X", "X"}, {"O", "X", "O"}, {"O", "X", "O"}};
         ticTacToe = new TicTacToe(board);
 
         String result = ticTacToe.getResult();
@@ -22,22 +22,42 @@ public class AppTest {
     }
 
     @Test
-    public void testOWin() throws Exception {
-        char[][] board = {{'X', 'O', 'X'}, {'O', 'O', 'X'}, {'O', 'X', 'O'}};
+    public void testXWinVertically() throws Exception {
+        String[][] board = {{"X", "O", "X"}, {"X", "X", "O"}, {"X", "O", "O"}};
         ticTacToe = new TicTacToe(board);
 
         String result = ticTacToe.getResult();
 
-        assertEquals("X won", O.getValue(), result);
+        assertEquals("X won", X.getValue(), result);
+    }
+
+    @Test
+    public void testOWinHorizontally() throws Exception {
+        String[][] board = {{"X", "O", "X"}, {"O", "O", "O"}, {"O", "X", "O"}};
+        ticTacToe = new TicTacToe(board);
+
+        String result = ticTacToe.getResult();
+
+        assertEquals("O won", O.getValue(), result);
+    }
+
+    @Test
+    public void testOWinVertically() throws Exception {
+        String[][] board = {{"X", "X", "O"}, {"O", "X", "O"}, {"X", "O", "O"}};
+        ticTacToe = new TicTacToe(board);
+
+        String result = ticTacToe.getResult();
+
+        assertEquals("O won", O.getValue(), result);
     }
 
     @Test
     public void testDraw() throws Exception {
-        char[][] board = {{'X', 'O', 'O'}, {'O', 'X', 'O'}, {'O', 'O', 'X'}};
+        String[][] board = {{"X", "O", "O"}, {"O", "X", "O"}, {"O", "O", "X"}};
         ticTacToe = new TicTacToe(board);
 
         String result = ticTacToe.getResult();
 
-        assertEquals("X won", D.getValue(), result);
+        assertEquals("Draw", D.getValue(), result);
     }
 }
