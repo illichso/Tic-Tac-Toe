@@ -2,13 +2,15 @@ package illichso;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static illichso.Result.D;
 import static illichso.Result.O;
 import static illichso.Result.X;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
-public class AppTest {
+public class TicTacToeTest {
     private TicTacToe ticTacToe;
 
 
@@ -90,7 +92,7 @@ public class AppTest {
 
         ticTacToe.makeMove(X, 1, 1);
 
-        assertTrue( expectedBoard == ticTacToe.getBoard());
+        assertTrue(Arrays.deepEquals(expectedBoard, ticTacToe.getBoard()));
     }
 
     @Test
@@ -99,9 +101,9 @@ public class AppTest {
         String[][] expectedBoard = {{"", "", ""}, {"", "X", ""}, {"", "", "O"}};
         ticTacToe = new TicTacToe(board);
 
-        ticTacToe.makeMove(X, 2, 2);
+        ticTacToe.makeMove(O, 2, 2);
 
-        assertTrue( expectedBoard == ticTacToe.getBoard());
+        assertTrue(Arrays.deepEquals(expectedBoard, ticTacToe.getBoard()));
     }
 
     @Test
@@ -112,6 +114,6 @@ public class AppTest {
 
         ticTacToe.makeMove(O, 1, 1);
 
-        assertTrue( expectedBoard == ticTacToe.getBoard());
+        assertTrue(Arrays.deepEquals(expectedBoard, ticTacToe.getBoard()));
     }
 }

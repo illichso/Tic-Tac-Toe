@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import static illichso.Result.D;
+
 @Getter
 @EqualsAndHashCode
 public class TicTacToe {
@@ -38,6 +39,9 @@ public class TicTacToe {
     }
 
     public void makeMove(Result player, int row, int column) {
+        if (board[row][column].equals("")) {
+            board[row][column] = player.getValue();
+        }
 
     }
 }
