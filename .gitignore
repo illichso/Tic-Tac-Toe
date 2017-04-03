@@ -10,5 +10,4 @@ gen### Java template
 *.ear
 hs_err_pid*
 .gitignore
-pom.xml
 target/
